@@ -1,0 +1,24 @@
+{
+  "name": "telegram-bot",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "input": "^1.0.1",
+    "moment": "^2.29.4",
+    "node-telegram-bot-api": "^0.64.0",
+    "qrcode-terminal": "^0.12.0",
+    "telegram": "^2.19.10",
+    "whatsapp-web.js": "^1.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
