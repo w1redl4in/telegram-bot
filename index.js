@@ -24,7 +24,7 @@ const stringSession = new StringSession(
   "1AQAOMTQ5LjE1NC4xNzUuNTEBuyu4y8rvpcoZmB67Mxrorhd+Bj8dZq8WdPlxgTFfj3AwNQnYifYsVHTbdaLAHRI9KlbosurOWlo7+2UukqknjLSNFkgcJDaUbJ6aXaoPQAA5Ki2vX+lVCiHNxgpEKCIoJx/jKf4KMoqHjZWSiPbA+DHZE5Hg6NBFmtaGN4qr+bwl7PeQBlIjRbKczju/2ruL6c+q+DafKsmsSjwFRQ6Q8QO5x4yj7ZP7xuGOqHRTdlAzwAXyWw2WCQOFHhioYGX6Ee5ykWDUzridIHANzB3vrIqqmEVeX737QTu9HCBqy8sWef5cSOA+SRhAliwJfrhmqu2mPeZU44ixp+Fh+BtKM4k="
 );
 
-(async () => {
+export const main = async () => {
   console.log("Loading interactive example...");
   const client = new TelegramClient(stringSession, apiId, apiHash, {
     connectionRetries: 5,
@@ -63,10 +63,12 @@ const stringSession = new StringSession(
             q,
             filter: new Api.InputMessagesFilterPhotos({}),
             limit: 20,
-            // maxDate: moment().unix(),
-            // minDate: moment().subtract(5, "days").unix(),
+            maxDate: moment().unix(),
+            minDate: moment().subtract(5, "days").unix(),
           })
         );
+
+        console.log("result", result.messages[0]);
 
         chats = [
           ...chats,
@@ -110,4 +112,4 @@ Buscando em: ${bots.join(", ")}
 
   console.log("You should now be connected.");
   console.log(client.session.save());
-})();
+};
